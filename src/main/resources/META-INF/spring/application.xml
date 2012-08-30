@@ -8,6 +8,6 @@
   </bean>
   
   <bean class="com.github.acme.spring.GreetingApp" >
-    <constructor-arg ref="greetingService"></constructor-arg>
+    <property name="greetingService" ref="greetingService"></property>
   </bean>
 </beans>
