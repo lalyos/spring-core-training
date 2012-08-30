@@ -7,7 +7,5 @@
   p:msg="menjunk enni" p:count="3" />
 
 
-  <bean class="com.github.acme.spring.GreetingApp" >
-    <property name="greetingService" ref="greetingService"></property>
-  </bean>
+  <bean class="com.github.acme.spring.GreetingApp" p:greetingService-ref="greetingService" />
 </beans>
