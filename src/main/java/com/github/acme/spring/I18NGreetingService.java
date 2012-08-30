@@ -6,14 +6,17 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.NoSuchMessageException;
+import org.springframework.stereotype.Component;
 
+@Component
 public class I18NGreetingService implements GreetingService, ApplicationContextAware {
 
-    private Locale locale;
+    
+    private Locale locale = new Locale("de");
     private ApplicationContext ctx;
     
     public void sayGreeting() {
-        String key = "__msg";
+        String key = "msg";
         try {
             
             System.out.println(String.format("[%s] :  %s"

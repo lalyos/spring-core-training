@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:p="http://www.springframework.org/schema/p"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-  default-autowire="byName" >
+  xmlns:p="http://www.springframework.org/schema/p" default-autowire="byName" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-  <bean class="com.github.acme.spring.GreetingApp" />
-
-  <bean id="greeting"  class="com.github.acme.spring.SimpleGreetingService"
-  p:msg="menjunk enni" p:count="3"  autowire-candidate="true"  init-method="myInit" />
-  
-  <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-  p:basenames="messages,errors"
-  />
-
-  <bean name="greetingService" class="com.github.acme.spring.I18NGreetingService" p:locale="de" />
-
+ <context:component-scan base-package="com.github.acme"/>
+     
+  <bean id="messageSource" p:basenames="messages,errors" 
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource" />
 </beans>
