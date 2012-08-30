@@ -10,7 +10,7 @@
   p:msg="menjunk enni" p:count="3"  autowire-candidate="true"  init-method="myInit" />
   
   <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-  p:basename="messages"
+  p:basenames="messages,errors"
   />
 
   <bean name="greetingService" class="com.github.acme.spring.I18NGreetingService" p:locale="de" />
