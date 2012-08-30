@@ -2,13 +2,18 @@ package com.github.acme.spring;
 
 import java.util.Locale;
 
-public class I18NGreetingService implements GreetingService {
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+public class I18NGreetingService implements GreetingService, ApplicationContextAware {
 
     private Locale locale;
+    private ApplicationContext ctx;
     
     public void sayGreeting() {
-        System.out.println(String.format("[%s] hello"
-                , locale.getDisplayLanguage()));
+        System.out.println(String.format("[%s] :  %s"
+                , locale.getDisplayLanguage(), ctx.getMessage("msg", null, locale)  ));
 
     }
 
@@ -18,6 +23,11 @@ public class I18NGreetingService implements GreetingService {
 
     public void setLocale(Locale locale) {
         this.locale = locale;
+    }
+
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.ctx = applicationContext;
+        
     }
 
 }

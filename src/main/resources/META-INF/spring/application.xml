@@ -2,11 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:p="http://www.springframework.org/schema/p"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-  default-autowire="byType" default-autowire-candidates="false">
+  default-autowire="byName" >
 
   <bean class="com.github.acme.spring.GreetingApp" />
 
-  <bean id="greeting"  name="greetingService" class="com.github.acme.spring.SimpleGreetingService"
+  <bean id="greeting"  class="com.github.acme.spring.SimpleGreetingService"
   p:msg="menjunk enni" p:count="3"  autowire-candidate="true"  init-method="myInit" />
   
   <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
@@ -14,9 +14,9 @@
   />
 
   <bean id="hungarian" class="java.util.Locale" >
-    <constructor-arg value="hu"></constructor-arg>
+    <constructor-arg value="de"></constructor-arg>
   </bean>
   
-  <bean class="com.github.acme.spring.I18NGreetingService" p:locale-ref="hungarian" />
+  <bean name="greetingService" class="com.github.acme.spring.I18NGreetingService" p:locale-ref="hungarian" />
 
 </beans>
