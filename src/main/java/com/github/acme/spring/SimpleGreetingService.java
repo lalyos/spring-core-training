@@ -1,7 +1,9 @@
 package com.github.acme.spring;
 
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SimpleGreetingService implements GreetingService, BeanNameAware {
 
     private String msg = "Hello Service!";
