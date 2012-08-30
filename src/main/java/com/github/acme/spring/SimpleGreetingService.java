@@ -1,6 +1,8 @@
 package com.github.acme.spring;
 
-public class SimpleGreetingService implements GreetingService {
+import org.springframework.beans.factory.BeanNameAware;
+
+public class SimpleGreetingService implements GreetingService, BeanNameAware {
 
     private String msg = "Hello Service!";
     private int count;
@@ -18,6 +20,10 @@ public class SimpleGreetingService implements GreetingService {
         }
 
     }
+    
+    public void myInit() {
+        System.out.println("reading from google translate ....");
+    }
 
     public String getMsg() {
         return msg;
@@ -33,6 +39,11 @@ public class SimpleGreetingService implements GreetingService {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public void setBeanName(String name) {
+        System.out.println("### my name is:" + name);
+        
     }
 
 }

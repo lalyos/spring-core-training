@@ -8,6 +8,10 @@
 
   <bean id="greeting"  name="greetingService" class="com.github.acme.spring.SimpleGreetingService"
   p:msg="menjunk enni" p:count="3"  autowire-candidate="true"  />
+  
+  <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+  p:basename="messages"
+  />
 
   <bean id="hungarian" class="java.util.Locale" >
     <constructor-arg value="hu"></constructor-arg>
