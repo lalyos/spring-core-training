@@ -13,10 +13,6 @@
   p:basename="messages"
   />
 
-  <bean id="hungarian" class="java.util.Locale" >
-    <constructor-arg value="de"></constructor-arg>
-  </bean>
-  
-  <bean name="greetingService" class="com.github.acme.spring.I18NGreetingService" p:locale-ref="hungarian" />
+  <bean name="greetingService" class="com.github.acme.spring.I18NGreetingService" p:locale="de" />
 
 </beans>
