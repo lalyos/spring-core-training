@@ -1,8 +1,12 @@
 package com.github.acme.spring;
 
+import lombok.Data;
+
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.stereotype.Component;
 
+
+@Data
 @Component
 public class SimpleGreetingService implements GreetingService, BeanNameAware {
 
@@ -25,22 +29,6 @@ public class SimpleGreetingService implements GreetingService, BeanNameAware {
     
     public void myInit() {
         System.out.println("reading from google translate ....");
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 
     public void setBeanName(String name) {

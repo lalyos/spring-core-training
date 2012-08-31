@@ -1,26 +1,20 @@
 package com.github.acme.spring;
 
-import org.springframework.beans.factory.BeanFactory;
+import lombok.Data;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@Data
 public class GreetingApp {
     
     @Autowired
+    @Qualifier("group")
     private GreetingService greetingService;
     
     public void greet() {
         greetingService.sayGreeting();
-    }
-
-    public GreetingService getGreetingService() {
-        return greetingService;
-    }
-
-    public void setGreetingService(GreetingService greetingService) {
-        this.greetingService = greetingService;
     }
 }
