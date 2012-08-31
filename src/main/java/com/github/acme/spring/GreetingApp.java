@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class GreetingApp {
     
     @Autowired
-    @Qualifier("i18n")
+    @Qualifier("simple")
     private GreetingService greetingService;
     
     public void greet() {
