@@ -14,23 +14,16 @@ import org.springframework.stereotype.Component;
 @Order(2)
 public class LowerCaseAspect {
 
-    private Map<String, Object> returnCache = new HashMap<String, Object>();
-
-    @Around("execution(String com.github..PrefixService.*(..))")
+    @Around("execution(String com.github..*.*(..))")
     public Object toUpperCase(ProceedingJoinPoint joinPoint) {
-        String signature = joinPoint.getSignature().toString();
-        Object ret = returnCache.get(signature);
-        if (ret == null) {
-            try {
-                ret = (String) joinPoint.proceed();
-                returnCache.put(signature, ret);
-            } catch (Throwable e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("### hitting cache ...");
+        String ret = null;
+        try {
+            ret = (String) joinPoint.proceed();
+        } catch (Throwable e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        return ret;
+        return ret.toLowerCase();
     }
+
 }
