@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RetryAspect {
 
-    @Around("execution(* com.github..Simple*.*(..))")
+    @Around("execution(@com.github.acme.spring.aop.ToRetry * com.github..*.*(..))")
     public Object toUpperCase(ProceedingJoinPoint joinPoint) {
         Object ret = null;
         int retry = 0;

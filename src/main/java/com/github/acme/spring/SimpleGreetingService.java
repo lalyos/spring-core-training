@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.stereotype.Component;
 
+import com.github.acme.spring.aop.ToRetry;
 import com.github.acme.spring.event.GreetingEvent;
 
 
@@ -59,6 +60,7 @@ public class SimpleGreetingService implements GreetingService, BeanNameAware, Ap
     }
 
     @Override
+    @ToRetry
     public void sayGreeting(Person person, String message) {
         GreetingEvent event = new GreetingEvent(this, person, null, message);
         applicationEventPublisher.publishEvent(event);
