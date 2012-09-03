@@ -21,7 +21,7 @@ public class CachingAspect {
         Object ret = returnCache.get(signature);
         if (ret == null) {
             try {
-                ret = (String) joinPoint.proceed();
+                ret = joinPoint.proceed();
                 returnCache.put(signature, ret);
             } catch (Throwable e) {
                 // TODO Auto-generated catch block
