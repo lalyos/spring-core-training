@@ -24,7 +24,7 @@ public class TimerAspect {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return "f@ck ";
+        return ret;
     }
     
     @Pointcut("execution(String com.github..*.*())")
