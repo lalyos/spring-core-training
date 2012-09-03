@@ -1,5 +1,7 @@
 package com.github.acme.spring;
 
+import static java.lang.String.format;
+
 import java.util.Locale;
 
 import lombok.Data;
@@ -29,6 +31,12 @@ public class I18NGreetingService implements GreetingService, ApplicationContextA
             System.out.println(applicationContext.getMessage("error.nosuchmessage", new Object[]{key}, locale));
         }
 
+    }
+
+    @Override
+    public void sayGreeting(Person person, String Message) {
+        // TODO Auto-generated method stub
+        
     }
 
 }

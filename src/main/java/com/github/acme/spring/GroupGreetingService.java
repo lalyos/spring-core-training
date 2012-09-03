@@ -19,4 +19,10 @@ public class GroupGreetingService implements GreetingService {
 
     }
 
+    @Override
+    public void sayGreeting(Person person, String Message) {
+        // TODO Auto-generated method stub
+        
+    }
+
 }

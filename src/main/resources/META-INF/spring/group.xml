@@ -3,7 +3,7 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-  <bean p:firstName="Jeno" p:lastName="Kiss" class="com.github.acme.spring.Person">
+  <bean p:firstName="Jeno" p:lastName="Kiss" class="com.github.acme.spring.Person" >
     <qualifier value="male" />
   </bean>
   <bean p:firstName="Geza" p:lastName="Nagy" class="com.github.acme.spring.Person">

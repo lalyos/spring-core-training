@@ -4,7 +4,6 @@ import java.beans.PropertyEditorSupport;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class PersonEditor extends PropertyEditorSupport {
 
     @Override

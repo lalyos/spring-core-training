@@ -7,5 +7,9 @@ import lombok.experimental.Value;
 public class Person {
 
     private String firstName;
-    private String lastName;    
+    private String lastName; 
+    
+    public String toString() {
+        return "Person [" + firstName + " " + lastName + "]";
+    }
 }
