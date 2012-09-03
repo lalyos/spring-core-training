@@ -1,5 +1,7 @@
 package com.github.acme.spring;
 
+import java.util.Random;
+
 import javax.jws.WebService;
 
 import lombok.Data;
@@ -20,6 +22,8 @@ import com.github.acme.spring.event.GreetingEvent;
 @Qualifier("simple")
 public class SimpleGreetingService implements GreetingService, BeanNameAware, ApplicationEventPublisherAware {
 
+    private Random rnd = new Random(System.currentTimeMillis());
+    
     private String msg = "Hello Service!";
     @Value("10")
     private int count;
@@ -58,12 +62,11 @@ public class SimpleGreetingService implements GreetingService, BeanNameAware, Ap
     public void sayGreeting(Person person, String message) {
         GreetingEvent event = new GreetingEvent(this, person, null, message);
         applicationEventPublisher.publishEvent(event);
-        
-        try {
-            Thread.currentThread().sleep(100);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+
+        int nextInt = rnd.nextInt(10);
+        System.out.println("RANDOM: " + nextInt);
+        if (nextInt < 5) {
+            throw new RuntimeException("Baj van!");
         }
         System.out.println("=== " + message + "" + person);
     }

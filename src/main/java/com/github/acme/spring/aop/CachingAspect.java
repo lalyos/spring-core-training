@@ -10,7 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+//@Component
 public class CachingAspect {
 
     private Map<String, Object> returnCache = new HashMap<String, Object>();

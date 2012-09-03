@@ -9,7 +9,7 @@ public class SimplePrefix implements PrefixService {
     public String getPrefix() {
         // TODO Auto-generated method stub
         try {
-            Thread.currentThread().sleep(3000);
+            Thread.currentThread().sleep(10);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

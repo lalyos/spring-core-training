@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+//@Component
 public class TimerAspect {
 
     @Around("serviceMethods()")
