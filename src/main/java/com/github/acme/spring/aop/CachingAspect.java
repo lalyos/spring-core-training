@@ -3,14 +3,13 @@ package com.github.acme.spring.aop;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(1)
-public class UpperCaseAspect {
+@Order(2)
+public class CachingAspect {
 
     @Around("execution(String com.github..*.*(..))")
     public Object toUpperCase(ProceedingJoinPoint joinPoint) {
@@ -21,7 +20,6 @@ public class UpperCaseAspect {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return ret.toUpperCase();
+        return ret.toLowerCase();
     }
-
 }

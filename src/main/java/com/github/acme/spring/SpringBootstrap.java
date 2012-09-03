@@ -18,7 +18,9 @@ public class SpringBootstrap {
         GreetingApp greetingApp = ctx.getBean(GreetingApp.class);
         System.out.println("###\n###\n###greetingApp type:" + greetingApp.getClass());
         greetingApp.greet();
-        greetingApp.greet("menjunk enni!");
+        greetingApp.greet("menjunk kavezno!");
+        greetingApp.greet("menjunk haza!");
+        greetingApp.greet("menjunk vacsorazni!");
         
 //        GreetingWS ws = ctx.getBean(GreetingWS.class);
 //        
